@@ -38,6 +38,14 @@ public class GoogleSearch {
 
         driver.pressKey(new KeyEvent(AndroidKey.ENTER));
 
+        Thread.sleep(5000);driver.findElement(AppiumBy.className("android.widget.EditText"))
+        .sendKeys("Selenium");
+
+        driver.executeScript(
+            "mobile: performEditorAction",
+            java.util.Map.of("action", "search")
+        );
+
         Thread.sleep(5000);
         WebElement searchText = driver.findElement(AppiumBy.id("com.google.android.googlequicksearchbox:id/googleapp_srp_search_box_text"));
 
